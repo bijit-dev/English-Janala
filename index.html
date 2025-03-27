@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>English Janala</title>
+
+    <!-- favicon icon  -->
+    <link rel="shortcut icon" href="./assets/logo.png" type="image/x-icon">
+
+    <!-- daisyUi cdn -->
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" type="text/css" />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
+    <!-- fontawesome cdn -->
+    <script src="https://kit.fontawesome.com/302eee30f5.js" crossorigin="anonymous"></script>
+
+    <!-- google font cdn -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@300;400;500;600;700&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Tiro+Bangla:ital@0;1&display=swap"
+        rel="stylesheet">
+
+    <style>
+        /* google font  */
+        .tiro-bangla-regular {
+            font-family: "Tiro Bangla", serif;
+            font-weight: 400;
+            font-style: normal;
+        }
+
+        .poppins {
+            font-family: "Poppins", sans-serif;
+        }
+
+        .hind-siliguri {
+            font-family: "Hind Siliguri", sans-serif;
+        }
+
+        .inter {
+            font-family: "Inter", sans-serif;
+        }
+
+        .active {
+            background: #422AD5;
+            color: white;
+        }
+
+        /* smooth scroll  */
+        html {
+            scroll-behavior: smooth;
+        }
+    </style>
+
+</head>
+
+<body class="poppins">
+    <header id="header" class="hidden">
+        <nav class="fixed w-full border-b-2 border-[#C6BDBD] backdrop-blur-lg z-50 top-0">
+            <div class="navbar w-11/12 mx-auto flex justify-between items-center">
+                <div class="flex justify-center items-center">
+                    <h1 class="text-xl text-[#18181B] ">English</h1>
+                    <img class="w-10 h-10" src="./assets/logo.png" alt="">
+                    <span class="tiro-bangla-regular text-xl text-[#000000]">জানালা</span>
+
+                </div>
+
+                <div class="">
+                    <ul class="flex items-center px-1 gap-4">
+                        <a href="#faq" class="btn btn-outline btn-primary hover:text-white">
+                            <i class="fa-solid fa-circle-question"></i>
+                            FAQ
+                        </a>
+                        <a href="#vocabulary" class="btn btn-outline btn-primary hover:text-white">
+                            <i class="fa-solid fa-book-open"></i>
+                            Learn
+                        </a>
+                        <button onclick="logout()" class="btn btn-outline btn-primary hover:text-white">
+                            <i class="fa-solid fa-arrow-right-from-bracket"></i>
+                            Logout
+                        </button>
+
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <!-- banner part -->
+        <section id="banner" class="w-11/12 mx-auto flex justify-between items-center pt-24">
+            <div class="w-7/12">
+                <h1 class="font-bold text-5xl text-[#18181B]"><span class="text-[#00BCFF]">English</span> is Easy!!</h1>
+                <p class="max-w-[727px] hind-siliguri py-6 text-[#18181B] font-medium text-2xl opacity-80">আজ থেকেই
+                    আপনার ভাষা শেখার যাত্রা শুরু করুন। আপনি যদি নতুন হন অথবা আপনার দক্ষতা বাড়াতে চান, আমাদের Interactive
+                    Lessons আপনাকে নিয়ে যাবে অন্য একটি Level এ</p>
+                <div class="">
+                    <div><input class="text-base placeholder:text-sm placeholder:text-[#18181B]/50 px-4 py-3 rounded"
+                            type="text" placeholder="Enter Your Name" id="name"> </div>
+
+                    <form action="#" class="my-5"><input
+                            class="text-base placeholder:text-sm placeholder:text-[#18181B]/50 px-4 py-3 rounded"
+                            type="password" placeholder="Enter your pin (123456)" name="pin" id="pin"></form>
+
+                    <button onclick="login()" class="btn btn bg-[#422AD5] text-[#E0E7FF] border-[#3D26C7] rounded ">Get
+                        Started</button>
+                </div>
+
+            </div>
+
+            <div class="w-5/12">
+                <img class="w-full" src="./assets/hero-student.png" alt="">
+            </div>
+        </section>
+
+        <section id="vocabulary" class="w-11/12 mx-auto text-center my-[200px] hidden">
+            <h1 class="font-bold text-4xl 
+            text-[#18181B]"><span class="text-[#00BCFF]">Let's</span> Learn Vocabularies</h1>
+
+            <div id="lesson-list" class="py-10 flex justify-center items-center gap-5">
+
+            </div>
+
+            <div id="word-container" class="bg-[#F8F8F8] p-8  grid grid-cols-3 gap-7">
+                <!-- default text  -->
+                <div class="text-center  my-16 col-span-full">
+                    <p class="hind-siliguri  text-sm text-[#79716B] pb-3">আপনি এখনো কোন Lesson Select করেন নি</p>
+                    <h3 class="hind-siliguri font-medium text-4xl text-[#292524]">একটি Lesson Select করুন।</h3>
+                </div>
+
+            </div>
+
+            <!-- model  -->
+            <dialog id="wordDettel" class="modal modal-bottom sm:modal-middle">
+                <div class="modal-box max-w-[735px] border-2 border-[#EDF7FF] rounded-xl p-7">
+                    <div id="details-container">
+
+                    </div>
+
+                    <div class="flex">
+                        <form method="dialog">
+                            <button class="btn bg-[#422AD5] text-white rounded-xl px-9 py-2">Complete Learning</button>
+                        </form>
+                    </div>
+                </div>
+            </dialog>
+
+        </section>
+
+        <section id="faq" class="w-11/12 mx-auto my-[200px] hidden">
+            <h1 class="font-bold text-4xl   text-center text-[#18181B]"><span class="text-[#00BCFF]">Frequently</span>
+                Asked Questions</h1>
+
+            <div class="py-20 space-y-4">
+                <div class="collapse collapse-plus bg-[#F8F8F8] border border-base-300">
+                    <input type="radio" name="my-accordion-3" />
+                    <div class="collapse-title font-medium text-base text-[#18181B]">1. How can I start learning English
+                        on this website?</div>
+                    <div class="collapse-content text-base font-normal text-[#62748E]">You can start learning English by
+                        chatting with me! Here are some ways I can help you:
+
+                        Conversational Practice – You can chat with me in English, and I'll help correct your mistakes.
+
+                        Grammar & Vocabulary – Ask me to explain grammar rules or suggest new words.
+
+                        Reading & Writing – Share a paragraph, and I’ll help improve it.
+
+                        Pronunciation Help – I can guide you on pronunciation tips and phonetics.
+
+                        Quizzes & Exercises – I can create fun quizzes and practice exercises.
+                    </div>
+                </div>
+
+                <div class="collapse collapse-plus bg-[#F8F8F8] border border-base-300">
+                    <input type="radio" name="my-accordion-3" />
+                    <div class="collapse-title font-medium text-base text-[#18181B]">2. Is this website free to use?
+                    </div>
+                    <div class="collapse-content text-base font-normal text-[#62748E]">Yes!
+                    </div>
+                </div>
+
+                <div class="collapse collapse-plus bg-[#F8F8F8] border border-base-300">
+                    <input type="radio" name="my-accordion-3" />
+                    <div class="collapse-title font-medium text-base text-[#18181B]">3. Do I need to create an account?
+                    </div>
+                    <div class="collapse-content text-base font-normal text-[#62748E]">No, you don’t need to create an
+                        account.
+                    </div>
+                </div>
+
+                <div class="collapse collapse-plus bg-[#F8F8F8] border border-base-300">
+                    <input type="radio" name="my-accordion-3" />
+                    <div class="collapse-title font-medium text-base text-[#18181B]">4. How can I build my English
+                        vocabulary?
+                    </div>
+                    <div class="collapse-content text-base font-normal text-[#62748E]">
+                        Building your English vocabulary takes regular practice! Here are some effective ways to
+                        improve:
+
+                        📖 Read Daily
+                        Read books, articles, and blogs in English.
+
+                        Start with simple stories and move to advanced content.
+
+                        Use apps like BBC Learning English, Newsela, or The Guardian.
+
+                        🎧 Listen to English
+                        Watch English movies, TV shows, and YouTube videos.
+
+                        Listen to English podcasts or audiobooks.
+
+                        Try songs with lyrics to learn new words.
+
+                        ✍️ Write & Use New Words
+                        Keep a vocabulary journal.
+
+                        Write daily sentences or a short diary entry.
+
+                        Try making flashcards (apps like Anki or Quizlet help).
+
+                        🗣️ Practice Speaking
+                        Use new words in daily conversations.
+
+                        Talk to yourself in English or find a speaking partner.
+
+                        Try tongue twisters to improve pronunciation.
+
+                        🎮 Play Vocabulary Games
+                        Try word games like Scrabble, Wordle, or crossword puzzles.
+
+                        Use language-learning apps like Duolingo, Memrise, or Quizlet.
+                    </div>
+                </div>
+
+                <div class="collapse collapse-plus bg-[#F8F8F8] border border-base-300">
+                    <input type="radio" name="my-accordion-3" />
+                    <div class="collapse-title font-medium text-base text-[#18181B]">5. Do you offer certificates for completed courses?
+                    </div>
+                    <div class="collapse-content text-base font-normal text-[#62748E]">No.</div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="bg-[#FFFFFF] py-24 border-t-2 border-[#FFEBEB]">
+        <div class="flex justify-between w-11/12 mx-auto">
+            <div class="space-y-3">
+                <div><img src="./assets/footerLogo.png" alt=""></div>
+                <h3 class="hind-siliguri font-medium text-xl text-[#000000]">ইংরেজি শিখুন সহজে</h3>
+                <p class="hind-siliguri font-normal text-base text-[#000000]">Providing ED-Tech Applications since 2025
+                </p>
+            </div>
+
+            <div>
+                <p class="font-semibold text-sn text-[#000000] ">Follow us</p>
+                <div class="flex items-center justify-center gap-2 mt-3">
+                    <a href="https://www.facebook.com" target="_blank"><img src="./assets/fb-thumb.png" alt=""></a>
+                    <a href="https://www.youtube.com/" target="_blank"><img src="./assets/youtube-thumb.png" alt=""></a>
+                    <a href="https://www.instagram.com/" target="_blank"> <img src="./assets/instagram-thumb.png"
+                            alt=""></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+
+    <script src="./script/index.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+</body>
+
+</html>
